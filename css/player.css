@@ -169,6 +169,10 @@ body {
   color: var(--color-text-muted);
 }
 
+.player-card__browser-note {
+  font-size: 0.875rem;
+}
+
 .player-card__tracklist {
   list-style: none;
   margin: 0;
