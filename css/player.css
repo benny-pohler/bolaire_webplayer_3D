@@ -527,3 +527,25 @@ body {
     justify-self: end;
   }
 }
+
+.player-footer {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.player-footer__copyright {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.player-footer__copyright a {
+  color: var(--color-highlight);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.player-footer__copyright a:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
