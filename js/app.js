@@ -353,7 +353,7 @@
               engine.startSpatialUpdates();
               headtrackingButton.classList.add("is-active");
               headtrackingButton.setAttribute("aria-pressed", "true");
-              headtrackingLabel.textContent = "Disable camera head tracking";
+              headtrackingLabel.textContent = "Disable webcam head tracking";
               if (headtrackingMessage) {
                 headtrackingMessage.textContent = "Head tracking active";
                 headtrackingMessage.dataset.state = "active";
