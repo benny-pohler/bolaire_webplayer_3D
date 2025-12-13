@@ -210,6 +210,11 @@
       headtrackingCtx.strokeStyle = "rgba(196, 58, 61, 0.7)";
       headtrackingCtx.stroke();
 
+      // NOTE: Yaw is already negated when passed to this function (see line 347)
+      // IMPORTANT: If you re-encode the audio manifests with correct channel order,
+      // you MUST remove the yaw negation in the onOrientation callback (line 346-347)
+      // Otherwise the head tracking will be inverted again!
+      
       // Nose (triangle) rotates with yaw
       const yawRad = (yaw * Math.PI) / 180;
       const noseLength = headRadius * 0.7;
@@ -342,7 +347,9 @@
                     }
                     const { yaw = 0, pitch = 0, roll = 0 } = orientation || {};
                     // IEM approach: Just store raw values, interval will handle filtering
-                    // Negate yaw to fix left/right swap from manifest encoding
+                    // WORKAROUND: Negate yaw to fix left/right swap from audio manifest encoding
+                    // TODO: If you re-encode audio with correct channel order, REMOVE these negations!
+                    // The visual sphere and audio engine both use negated yaw here.
                     engine.setOrientation({ yaw: -yaw, pitch, roll });
                     renderHeadtrackingVisual({ yaw: -yaw, pitch });
                   }
