@@ -1,6 +1,6 @@
 # bolaire - mosaic, floating · 3D Audio Player
 
-An immersive web-based audio player featuring head-tracked 3D audio using fourth-order Higher-Order Ambisonics (HOA). Built on the IEM Cat3DA framework with custom UI/UX design.
+An immersive web-based audio player featuring head-tracked 3D audio using fourth-order Higher-Order Ambisonics (HOA). Built on the IEM Cat3DA framework.
 
 ## Features
 
@@ -8,8 +8,8 @@ An immersive web-based audio player featuring head-tracked 3D audio using fourth
 - **4th order Ambisonics** - High-resolution spatial audio (25 channels)
 - **MPEG-DASH streaming** - Efficient multichannel OPUS audio delivery
 - **Room ambience** - Convolution reverb with dry/wet mixing
-- **Synchronized lyrics** - Auto-updating lyrics display
-- **Graceful fallback** - Works as static binaural player without camera access
+- **Synchronized lyrics** - Lyrics display
+- **Graceful fallback** - Works also as static binaural player without camera access
 
 ## Technical Stack
 
