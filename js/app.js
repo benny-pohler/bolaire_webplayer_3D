@@ -365,16 +365,16 @@
               let userMessage = "";
               
               if (errorMsg.includes("NotFoundError") || errorMsg.includes("device not found") || errorMsg.includes("Requested device")) {
-                userMessage = "Camera not detected.\\n\\nPlease check:\\n• Your webcam is plugged in\\n• No other app is using the camera\\n• Try refreshing the page";
+                userMessage = "Camera not detected. Please check: Your webcam is plugged in, no other app is using the camera\n• Try refreshing the page";
               } else if (errorMsg.includes("permission") || errorMsg.includes("Permission") || errorMsg.includes("denied") || errorMsg.includes("NotAllowedError")) {
-                userMessage = "Camera access denied.\\n\\nPlease:\\n• Click 'Allow' when prompted\\n• Check browser camera permissions\\n• Refresh the page and try again";
+                userMessage = "Camera access denied.\n\nPlease:\n• Click 'Allow' when prompted\n• Check browser camera permissions\n• Refresh the page and try again";
               } else if (errorMsg.includes("NotReadableError") || errorMsg.includes("in use")) {
-                userMessage = "Camera is busy.\\n\\nPlease:\\n• Close other apps using the camera\\n• Close other browser tabs\\n• Refresh the page";
+                userMessage = "Camera is busy.\n\nPlease:\n• Close other apps using the camera\n• Close other browser tabs\n• Refresh the page";
               } else {
-                userMessage = "Camera not available.\\n\\nPlease:\\n• Check your webcam connection\\n• Allow camera access in browser settings\\n• Use Chrome or Firefox for best results";
+                userMessage = "Camera not available.\n\nPlease:\n• Check your webcam connection\n• Allow camera access in browser settings\n• Use Chrome or Firefox for best results";
               }
               
-              alert(`Head tracking unavailable\\n\\n${userMessage}`);
+              alert(`Head tracking unavailable\n\n${userMessage}`);
               headtracking = null;
               headtrackingActive = false;
               headtrackingButton.classList.remove("is-active");
