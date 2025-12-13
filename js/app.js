@@ -342,8 +342,9 @@
                     }
                     const { yaw = 0, pitch = 0, roll = 0 } = orientation || {};
                     // IEM approach: Just store raw values, interval will handle filtering
-                    engine.setOrientation({ yaw, pitch, roll });
-                    renderHeadtrackingVisual({ yaw, pitch });
+                    // Negate yaw to fix left/right swap from manifest encoding
+                    engine.setOrientation({ yaw: -yaw, pitch, roll });
+                    renderHeadtrackingVisual({ yaw: -yaw, pitch });
                   }
                 });
               }
