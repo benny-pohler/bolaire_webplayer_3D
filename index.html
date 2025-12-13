@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bolaire - mosaic, floating | 3D Player</title>
+  <link rel="icon" href="data:," type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/player.css">
+
+  <script src="./dependencies/tf.min.js" defer></script>
+  <script src="./dependencies/tf-backend-wasm.js" defer></script>
+  <script src="./dependencies/facemesh.js" defer></script>
+  <script src="./dependencies/three.min.js" defer></script>
+  <script src="./dependencies/dash.min.js" defer></script>
+  <script src="./dependencies/ambisonics.min.js" defer></script>
+  <script src="js/OneEuroFilter.js" defer></script>
+  <script src="js/audio-engine.js" defer></script>
+  <script src="js/headtracking.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+
+<body>
+  <main class="player-shell">
+    <section class="player-card">
+      <div class="player-card__art" id="album-art">
+        <img src="images/bolaire_mosaic.png" alt="Album cover artwork" class="player-card__art-image">
+        <section class="player-card__lyrics" aria-live="polite">
+          <header class="player-card__lyrics-header">
+            <h2>Lyrics</h2>
+            <p id="lyrics-track-label" class="player-card__lyrics-subtitle">Track 01 · Déviation</p>
+          </header>
+          <pre id="lyrics-content" class="player-card__lyrics-text">Loading lyrics...</pre>
+        </section>
+      </div>
+      <div class="player-card__content">
+        <header class="player-card__header">
+          <p class="player-card__eyebrow">bolaire</p>
+          <h1 class="player-card__title">mosaic, floating · 3D Audio EP</h1>
+          <p class="player-card__subtitle">Immersive listening experience (use headphones)</p>
+        </header>
+
+        <ul class="player-card__tracklist" id="track-list" aria-label="Track list">
+          <li data-track-index="0" data-src="audio/deviation.mpd" data-lyrics="lyrics/deviation.txt"
+            class="player-card__track is-active">
+            <span class="player-card__track-number">01</span>
+            <span class="player-card__track-title">Déviation</span>
+            <span class="player-card__track-duration" data-track-duration>–:–</span>
+          </li>
+          <li data-track-index="1" data-src="audio/sincerite.mpd" data-lyrics="lyrics/sincerite.txt"
+            class="player-card__track">
+            <span class="player-card__track-number">02</span>
+            <span class="player-card__track-title">Sincérité</span>
+            <span class="player-card__track-duration" data-track-duration>–:–</span>
+          </li>
+          <li data-track-index="2" data-src="audio/reunion.mpd" data-lyrics="lyrics/reunion.txt"
+            class="player-card__track">
+            <span class="player-card__track-number">03</span>
+            <span class="player-card__track-title">Réunion</span>
+            <span class="player-card__track-duration" data-track-duration>–:–</span>
+          </li>
+          <li data-track-index="3" data-src="audio/choque.mpd" data-lyrics="lyrics/choque.txt"
+            class="player-card__track">
+            <span class="player-card__track-number">04</span>
+            <span class="player-card__track-title">Choqué</span>
+            <span class="player-card__track-duration" data-track-duration>–:–</span>
+          </li>
+        </ul>
+
+        <div class="player-card__controls">
+          <div class="transport">
+            <button type="button" class="transport__button" id="btn-prev" aria-label="Previous track">
+              <span aria-hidden="true">⟨</span>
+            </button>
+            <button type="button" class="transport__button transport__button--primary" id="btn-play" aria-label="Play">
+              <span class="transport__icon" id="btn-play-icon">▶</span>
+            </button>
+            <button type="button" class="transport__button" id="btn-next" aria-label="Next track">
+              <span aria-hidden="true">⟩</span>
+            </button>
+          </div>
+          <button type="button" class="headtracking-toggle" id="btn-headtracking" aria-pressed="false">
+            <span class="headtracking-toggle__icon" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 48 48" role="presentation" focusable="false">
+                <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.35" />
+                <circle cx="24" cy="21" r="8" fill="none" stroke="currentColor" stroke-width="2.5" />
+                <path d="M14 31c2.4-4 6.1-6 10-6s7.6 2 10 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M9 21a15 15 0 0 1 30 0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity="0.45" />
+              </svg>
+            </span>
+            <span class="headtracking-toggle__label">Enable head tracking</span>
+            <span class="headtracking-toggle__caption">Head-tracked 3D audio</span>
+          </button>
+        </div>
+
+        <div class="player-card__progress" aria-label="Playback progress">
+          <span id="current-time" class="player-card__timecode">0:00</span>
+          <input id="progress" class="player-card__slider" type="range" min="0" max="0" value="0"
+            aria-label="Seek through track">
+          <span id="duration" class="player-card__timecode">0:00</span>
+        </div>
+
+        <div class="player-card__extras">
+          <label class="room-control" for="room-select">
+            <span class="room-control__label">Room ambience</span>
+            <select id="room-select" class="room-control__select">
+              <option value="">Binaural (dry)</option>
+              <option value="./audio/SmallRoom.wav">Small room</option>
+              <option value="./audio/CUBE.wav">Large room</option>
+            </select>
+          </label>
+          <div class="headtracking-visual-wrapper">
+            <canvas id="headtracking-visual" width="85" height="85" aria-hidden="true"></canvas>
+            <p id="headtracking-status" class="headtracking-status" aria-live="polite">Head tracking disabled</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <audio id="player-audio" crossorigin="anonymous"></audio>
+  <video id="headtrack-video" playsinline muted hidden></video>
+  <canvas id="headtrack-canvas" hidden></canvas>
+</body>
+
+</html>
