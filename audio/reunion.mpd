@@ -4,17 +4,17 @@
   xmlns="urn:mpeg:DASH:schema:MPD:2011"
   xsi:schemaLocation="urn:mpeg:DASH:schema:MPD:2011"
   type="static"
-  mediaPresentationDuration="PT148.379S"
+  mediaPresentationDuration="PT190.559S"
   minBufferTime="PT1S"
-  profiles="urn:webm:dash:profile:webm-on-demand:2012">
-<Period id="0" start="PT0S" duration="PT148.379S" >
+  profiles="urn:mpeg:dash:profile:webm-on-demand:2012">
+<Period id="0" start="PT0S" duration="PT190.559S" >
 <AdaptationSet id="0" mimeType="audio/webm" codecs="opus" audioSamplingRate="48000" bitstreamSwitching="true" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
-<Representation id="0" bandwidth="1634951">
+<Representation id="0" bandwidth="1751423">
 <BaseURL>reunion.webm</BaseURL>
 <SegmentBase
-  indexRange="29335751-29336358">
+  indexRange="38984890-38985681">
 <Initialization
-  range="0-780" />
+  range="0-524" />
 </SegmentBase>
 </Representation>
 </AdaptationSet>

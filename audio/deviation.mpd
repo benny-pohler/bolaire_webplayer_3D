@@ -4,17 +4,17 @@
   xmlns="urn:mpeg:DASH:schema:MPD:2011"
   xsi:schemaLocation="urn:mpeg:DASH:schema:MPD:2011"
   type="static"
-  mediaPresentationDuration="PT175.217S"
+  mediaPresentationDuration="PT170.404S"
   minBufferTime="PT1S"
-  profiles="urn:webm:dash:profile:webm-on-demand:2012">
-<Period id="0" start="PT0S" duration="PT175.217S" >
+  profiles="urn:mpeg:dash:profile:webm-on-demand:2012">
+<Period id="0" start="PT0S" duration="PT170.404S" >
 <AdaptationSet id="0" mimeType="audio/webm" codecs="opus" audioSamplingRate="48000" bitstreamSwitching="true" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
-<Representation id="0" bandwidth="1611969">
+<Representation id="0" bandwidth="1660755">
 <BaseURL>deviation.webm</BaseURL>
 <SegmentBase
-  indexRange="33745556-33746289">
+  indexRange="35037322-35038029">
 <Initialization
-  range="0-788" />
+  range="0-524" />
 </SegmentBase>
 </Representation>
 </AdaptationSet>
