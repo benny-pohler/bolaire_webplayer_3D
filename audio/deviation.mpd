@@ -9,12 +9,12 @@
   profiles="urn:mpeg:dash:profile:webm-on-demand:2012">
 <Period id="0" start="PT0S" duration="PT170.404S" >
 <AdaptationSet id="0" mimeType="audio/webm" codecs="opus" audioSamplingRate="48000" bitstreamSwitching="true" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
-<Representation id="0" bandwidth="1660755">
+<Representation id="0" bandwidth="1593402">
 <BaseURL>deviation.webm</BaseURL>
 <SegmentBase
-  indexRange="35037322-35038029">
+  indexRange="34141062-34141769">
 <Initialization
-  range="0-524" />
+  range="0-509" />
 </SegmentBase>
 </Representation>
 </AdaptationSet>

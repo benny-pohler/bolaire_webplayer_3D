@@ -4,17 +4,17 @@
   xmlns="urn:mpeg:DASH:schema:MPD:2011"
   xsi:schemaLocation="urn:mpeg:DASH:schema:MPD:2011"
   type="static"
-  mediaPresentationDuration="PT163.444S"
+  mediaPresentationDuration="PT162.549S"
   minBufferTime="PT1S"
   profiles="urn:mpeg:dash:profile:webm-on-demand:2012">
-<Period id="0" start="PT0S" duration="PT163.444S" >
+<Period id="0" start="PT0S" duration="PT162.549S" >
 <AdaptationSet id="0" mimeType="audio/webm" codecs="opus" audioSamplingRate="48000" bitstreamSwitching="true" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
-<Representation id="0" bandwidth="1682024">
+<Representation id="0" bandwidth="1592946">
 <BaseURL>choque.webm</BaseURL>
 <SegmentBase
-  indexRange="32609964-32610629">
+  indexRange="32567294-32567959">
 <Initialization
-  range="0-524" />
+  range="0-509" />
 </SegmentBase>
 </Representation>
 </AdaptationSet>

@@ -4,17 +4,17 @@
   xmlns="urn:mpeg:DASH:schema:MPD:2011"
   xsi:schemaLocation="urn:mpeg:DASH:schema:MPD:2011"
   type="static"
-  mediaPresentationDuration="PT226.686S"
+  mediaPresentationDuration="PT225.504S"
   minBufferTime="PT1S"
   profiles="urn:mpeg:dash:profile:webm-on-demand:2012">
-<Period id="0" start="PT0S" duration="PT226.686S" >
+<Period id="0" start="PT0S" duration="PT225.504S" >
 <AdaptationSet id="0" mimeType="audio/webm" codecs="opus" audioSamplingRate="48000" bitstreamSwitching="true" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
-<Representation id="0" bandwidth="1718433">
+<Representation id="0" bandwidth="1595703">
 <BaseURL>sincerite.webm</BaseURL>
 <SegmentBase
-  indexRange="47346350-47347289">
+  indexRange="45180479-45181417">
 <Initialization
-  range="0-524" />
+  range="0-509" />
 </SegmentBase>
 </Representation>
 </AdaptationSet>
