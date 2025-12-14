@@ -1,6 +1,6 @@
 # bolaire - mosaic, floating · 3D Audio Player
 
-An immersive web-based audio player featuring head-tracked 3D audio using fourth-order Higher-Order Ambisonics (HOA). Built on the IEM Cat3DA framework.
+An immersive web-based audio player featuring head-tracked 3D audio using fourth-order Higher-Order Ambisonics (HOA). Built on a IEM framework.
 
 ## Features
 
@@ -23,7 +23,7 @@ An immersive web-based audio player featuring head-tracked 3D audio using fourth
 All audio files use MPEG-DASH with multichannel OPUS encoding. Place `.mpd` manifests and `.webm` segments in the `/audio` folder
 
 ### Codec Considaration
-The Cat3DA player uses MPEG-DASH. The OPUS codec is chosen, as it is the only lossy codec supporting multichannel files, which is available in most browsers (not in Safari, see below). The files are packaged in the webm container for streaming via DASH. The following ffmpeg commands have proven to be effective for encoding media. Adapt the commands according to your needs.
+The player uses MPEG-DASH. The OPUS codec is chosen, as it is the only lossy codec supporting multichannel files, which is available in most browsers (not in Safari, see below). The files are packaged in the webm container for streaming via DASH. The following ffmpeg commands have proven to be effective for encoding media. Adapt the commands according to your needs.
 
 Transcode multichannel wav audio files to multichannel OPUS in webm container, we recommend a bitrate of 64 kbit/channel/s:
 ```
@@ -46,7 +46,7 @@ Always use the latest browser version for best performance.
 
 ## Credits
 
-Built on the IEM Cat3DA framework by Lukas Gölles (Institute of Electronic Music and Acoustics Graz)
+Built on a IEM framework by Lukas Goelles (Institute of Electronic Music and Acoustics Graz)
 
 **Technologies**:
 - [TensorFlow.js FaceMesh](https://google.github.io/mediapipe/solutions/face_mesh.html) - Head tracking
