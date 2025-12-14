@@ -1,22 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<MPD
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns="urn:mpeg:DASH:schema:MPD:2011"
-  xsi:schemaLocation="urn:mpeg:DASH:schema:MPD:2011"
-  type="static"
-  mediaPresentationDuration="PT162.549S"
-  minBufferTime="PT1S"
-  profiles="urn:mpeg:dash:profile:webm-on-demand:2012">
-<Period id="0" start="PT0S" duration="PT162.549S" >
-<AdaptationSet id="0" mimeType="audio/webm" codecs="opus" audioSamplingRate="48000" bitstreamSwitching="true" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
-<Representation id="0" bandwidth="1592946">
-<BaseURL>choque.webm</BaseURL>
-<SegmentBase
-  indexRange="32567294-32567959">
-<Initialization
-  range="0-509" />
-</SegmentBase>
-</Representation>
-</AdaptationSet>
-</Period>
+<?xml version="1.0" encoding="utf-8"?>
+<MPD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="urn:mpeg:dash:schema:mpd:2011"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xsi:schemaLocation="urn:mpeg:DASH:schema:MPD:2011 http://standards.iso.org/ittf/PubliclyAvailableStandards/MPEG-DASH_schema_files/DASH-MPD.xsd"
+	profiles="urn:mpeg:dash:profile:isoff-live:2011"
+	type="static"
+	mediaPresentationDuration="PT2M42.5S"
+	maxSegmentDuration="PT5.0S"
+	minBufferTime="PT10.0S">
+	<ProgramInformation>
+	</ProgramInformation>
+	<ServiceDescription id="0">
+	</ServiceDescription>
+	<Period id="0" start="PT0.0S">
+		<AdaptationSet id="0" contentType="audio" startWithSAP="1" segmentAlignment="true" bitstreamSwitching="true">
+			<Representation id="0" mimeType="audio/webm" codecs="opus" bandwidth="1600000" audioSamplingRate="48000">
+				<AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="25" />
+				<BaseURL>choque.webm</BaseURL>
+				<SegmentList timescale="1000000" duration="5000000" startNumber="1">
+					<Initialization range="0-423" />
+					<SegmentURL mediaRange="424-870129" />
+					<SegmentURL mediaRange="870130-1907729" />
+					<SegmentURL mediaRange="1907730-3008044" />
+					<SegmentURL mediaRange="3008045-4073862" />
+					<SegmentURL mediaRange="4073863-5107280" />
+					<SegmentURL mediaRange="5107281-6174191" />
+					<SegmentURL mediaRange="6174192-7233780" />
+					<SegmentURL mediaRange="7233781-8294099" />
+					<SegmentURL mediaRange="8294100-9371241" />
+					<SegmentURL mediaRange="9371242-10442812" />
+					<SegmentURL mediaRange="10442813-11428972" />
+					<SegmentURL mediaRange="11428973-12434054" />
+					<SegmentURL mediaRange="12434055-13430087" />
+					<SegmentURL mediaRange="13430088-14577866" />
+					<SegmentURL mediaRange="14577867-15643337" />
+					<SegmentURL mediaRange="15643338-16758169" />
+					<SegmentURL mediaRange="16758170-17839633" />
+					<SegmentURL mediaRange="17839634-18864886" />
+					<SegmentURL mediaRange="18864887-19939964" />
+					<SegmentURL mediaRange="19939965-20996397" />
+					<SegmentURL mediaRange="20996398-22069324" />
+					<SegmentURL mediaRange="22069325-23142385" />
+					<SegmentURL mediaRange="23142386-24221424" />
+					<SegmentURL mediaRange="24221425-25319445" />
+					<SegmentURL mediaRange="25319446-26387232" />
+					<SegmentURL mediaRange="26387233-27419560" />
+					<SegmentURL mediaRange="27419561-28553240" />
+					<SegmentURL mediaRange="28553241-29459894" />
+					<SegmentURL mediaRange="29459895-30286699" />
+					<SegmentURL mediaRange="30286700-31089322" />
+					<SegmentURL mediaRange="31089323-31866727" />
+					<SegmentURL mediaRange="31866728-32575893" />
+					<SegmentURL mediaRange="32575894-32899467" />
+				</SegmentList>
+			</Representation>
+		</AdaptationSet>
+	</Period>
 </MPD>
