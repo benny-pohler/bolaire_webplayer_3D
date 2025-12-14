@@ -1,59 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<MPD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="urn:mpeg:dash:schema:mpd:2011"
-	xmlns:xlink="http://www.w3.org/1999/xlink"
-	xsi:schemaLocation="urn:mpeg:DASH:schema:MPD:2011 http://standards.iso.org/ittf/PubliclyAvailableStandards/MPEG-DASH_schema_files/DASH-MPD.xsd"
-	profiles="urn:mpeg:dash:profile:isoff-live:2011"
-	type="static"
-	mediaPresentationDuration="PT2M42.5S"
-	maxSegmentDuration="PT5.0S"
-	minBufferTime="PT10.0S">
-	<ProgramInformation>
-	</ProgramInformation>
-	<ServiceDescription id="0">
-	</ServiceDescription>
-	<Period id="0" start="PT0.0S">
-		<AdaptationSet id="0" contentType="audio" startWithSAP="1" segmentAlignment="true" bitstreamSwitching="true">
-			<Representation id="0" mimeType="audio/webm" codecs="opus" bandwidth="1600000" audioSamplingRate="48000">
-				<AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="25" />
-				<BaseURL>choque.webm</BaseURL>
-				<SegmentList timescale="1000000" duration="5000000" startNumber="1">
-					<Initialization range="0-423" />
-					<SegmentURL mediaRange="424-870355" />
-					<SegmentURL mediaRange="870356-1908059" />
-					<SegmentURL mediaRange="1908060-3008461" />
-					<SegmentURL mediaRange="3008462-4074019" />
-					<SegmentURL mediaRange="4074020-5107357" />
-					<SegmentURL mediaRange="5107358-6174448" />
-					<SegmentURL mediaRange="6174449-7234097" />
-					<SegmentURL mediaRange="7234098-8294255" />
-					<SegmentURL mediaRange="8294256-9371956" />
-					<SegmentURL mediaRange="9371957-10443007" />
-					<SegmentURL mediaRange="10443008-11429257" />
-					<SegmentURL mediaRange="11429258-12434200" />
-					<SegmentURL mediaRange="12434201-13430136" />
-					<SegmentURL mediaRange="13430137-14578414" />
-					<SegmentURL mediaRange="14578415-15643840" />
-					<SegmentURL mediaRange="15643841-16758223" />
-					<SegmentURL mediaRange="16758224-17838874" />
-					<SegmentURL mediaRange="17838875-18864082" />
-					<SegmentURL mediaRange="18864083-19939048" />
-					<SegmentURL mediaRange="19939049-20995685" />
-					<SegmentURL mediaRange="20995686-22068014" />
-					<SegmentURL mediaRange="22068015-23141350" />
-					<SegmentURL mediaRange="23141351-24220481" />
-					<SegmentURL mediaRange="24220482-25318393" />
-					<SegmentURL mediaRange="25318394-26386499" />
-					<SegmentURL mediaRange="26386500-27419064" />
-					<SegmentURL mediaRange="27419065-28552729" />
-					<SegmentURL mediaRange="28552730-29459465" />
-					<SegmentURL mediaRange="29459466-30286403" />
-					<SegmentURL mediaRange="30286404-31089203" />
-					<SegmentURL mediaRange="31089204-31866678" />
-					<SegmentURL mediaRange="31866679-32575811" />
-					<SegmentURL mediaRange="32575812-32899709" />
-				</SegmentList>
-			</Representation>
-		</AdaptationSet>
-	</Period>
+<?xml version="1.0" encoding="UTF-8"?>
+<MPD
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="urn:mpeg:DASH:schema:MPD:2011"
+  xsi:schemaLocation="urn:mpeg:DASH:schema:MPD:2011"
+  type="static"
+  mediaPresentationDuration="PT162.548S"
+  minBufferTime="PT1S"
+  profiles="urn:mpeg:dash:profile:webm-on-demand:2012">
+<Period id="0" start="PT0S" duration="PT162.548S" >
+<AdaptationSet id="0" mimeType="audio/webm" codecs="opus" audioSamplingRate="48000" bitstreamSwitching="true" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
+<Representation id="0" bandwidth="1702050">
+<BaseURL>choque.webm</BaseURL>
+<SegmentBase
+  indexRange="32900005-32900670">
+<Initialization
+  range="0-604" />
+</SegmentBase>
+</Representation>
+</AdaptationSet>
+</Period>
 </MPD>

@@ -1,64 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<MPD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="urn:mpeg:dash:schema:mpd:2011"
-	xmlns:xlink="http://www.w3.org/1999/xlink"
-	xsi:schemaLocation="urn:mpeg:DASH:schema:MPD:2011 http://standards.iso.org/ittf/PubliclyAvailableStandards/MPEG-DASH_schema_files/DASH-MPD.xsd"
-	profiles="urn:mpeg:dash:profile:isoff-live:2011"
-	type="static"
-	mediaPresentationDuration="PT3M7.0S"
-	maxSegmentDuration="PT5.0S"
-	minBufferTime="PT10.0S">
-	<ProgramInformation>
-	</ProgramInformation>
-	<ServiceDescription id="0">
-	</ServiceDescription>
-	<Period id="0" start="PT0.0S">
-		<AdaptationSet id="0" contentType="audio" startWithSAP="1" segmentAlignment="true" bitstreamSwitching="true">
-			<Representation id="0" mimeType="audio/webm" codecs="opus" bandwidth="1600000" audioSamplingRate="48000">
-				<AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="25" />
-				<BaseURL>reunion.webm</BaseURL>
-				<SegmentList timescale="1000000" duration="5000000" startNumber="1">
-					<Initialization range="0-423" />
-					<SegmentURL mediaRange="424-797907" />
-					<SegmentURL mediaRange="797908-1867515" />
-					<SegmentURL mediaRange="1867516-2885968" />
-					<SegmentURL mediaRange="2885969-3860507" />
-					<SegmentURL mediaRange="3860508-4945331" />
-					<SegmentURL mediaRange="4945332-5889552" />
-					<SegmentURL mediaRange="5889553-6914641" />
-					<SegmentURL mediaRange="6914642-7926686" />
-					<SegmentURL mediaRange="7926687-8957525" />
-					<SegmentURL mediaRange="8957526-9905807" />
-					<SegmentURL mediaRange="9905808-10905187" />
-					<SegmentURL mediaRange="10905188-11869828" />
-					<SegmentURL mediaRange="11869829-12938058" />
-					<SegmentURL mediaRange="12938059-13934068" />
-					<SegmentURL mediaRange="13934069-14871376" />
-					<SegmentURL mediaRange="14871377-15965626" />
-					<SegmentURL mediaRange="15965627-16997596" />
-					<SegmentURL mediaRange="16997597-18029158" />
-					<SegmentURL mediaRange="18029159-19135874" />
-					<SegmentURL mediaRange="19135875-20207998" />
-					<SegmentURL mediaRange="20207999-21264392" />
-					<SegmentURL mediaRange="21264393-22335907" />
-					<SegmentURL mediaRange="22335908-23422436" />
-					<SegmentURL mediaRange="23422437-24470739" />
-					<SegmentURL mediaRange="24470740-25523417" />
-					<SegmentURL mediaRange="25523418-26601206" />
-					<SegmentURL mediaRange="26601207-27755617" />
-					<SegmentURL mediaRange="27755618-28890076" />
-					<SegmentURL mediaRange="28890077-29971430" />
-					<SegmentURL mediaRange="29971431-31118013" />
-					<SegmentURL mediaRange="31118014-32293816" />
-					<SegmentURL mediaRange="32293817-33385206" />
-					<SegmentURL mediaRange="33385207-34498038" />
-					<SegmentURL mediaRange="34498039-35642788" />
-					<SegmentURL mediaRange="35642789-36760372" />
-					<SegmentURL mediaRange="36760373-37869010" />
-					<SegmentURL mediaRange="37869011-38810079" />
-					<SegmentURL mediaRange="38810080-39068519" />
-				</SegmentList>
-			</Representation>
-		</AdaptationSet>
-	</Period>
+<?xml version="1.0" encoding="UTF-8"?>
+<MPD
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="urn:mpeg:DASH:schema:MPD:2011"
+  xsi:schemaLocation="urn:mpeg:DASH:schema:MPD:2011"
+  type="static"
+  mediaPresentationDuration="PT187.008S"
+  minBufferTime="PT1S"
+  profiles="urn:mpeg:dash:profile:webm-on-demand:2012">
+<Period id="0" start="PT0S" duration="PT187.008S" >
+<AdaptationSet id="0" mimeType="audio/webm" codecs="opus" audioSamplingRate="48000" bitstreamSwitching="true" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
+<Representation id="0" bandwidth="1765908">
+<BaseURL>reunion.webm</BaseURL>
+<SegmentBase
+  indexRange="39068815-39069585">
+<Initialization
+  range="0-604" />
+</SegmentBase>
+</Representation>
+</AdaptationSet>
+</Period>
 </MPD>

@@ -1,72 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<MPD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="urn:mpeg:dash:schema:mpd:2011"
-	xmlns:xlink="http://www.w3.org/1999/xlink"
-	xsi:schemaLocation="urn:mpeg:DASH:schema:MPD:2011 http://standards.iso.org/ittf/PubliclyAvailableStandards/MPEG-DASH_schema_files/DASH-MPD.xsd"
-	profiles="urn:mpeg:dash:profile:isoff-live:2011"
-	type="static"
-	mediaPresentationDuration="PT3M45.4S"
-	maxSegmentDuration="PT5.0S"
-	minBufferTime="PT10.0S">
-	<ProgramInformation>
-	</ProgramInformation>
-	<ServiceDescription id="0">
-	</ServiceDescription>
-	<Period id="0" start="PT0.0S">
-		<AdaptationSet id="0" contentType="audio" startWithSAP="1" segmentAlignment="true" bitstreamSwitching="true">
-			<Representation id="0" mimeType="audio/webm" codecs="opus" bandwidth="1600000" audioSamplingRate="48000">
-				<AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="25" />
-				<BaseURL>sincerite.webm</BaseURL>
-				<SegmentList timescale="1000000" duration="5000000" startNumber="1">
-					<Initialization range="0-423" />
-					<SegmentURL mediaRange="424-1034072" />
-					<SegmentURL mediaRange="1034073-2207054" />
-					<SegmentURL mediaRange="2207055-3234994" />
-					<SegmentURL mediaRange="3234995-4338576" />
-					<SegmentURL mediaRange="4338577-5376814" />
-					<SegmentURL mediaRange="5376815-6430259" />
-					<SegmentURL mediaRange="6430260-7481201" />
-					<SegmentURL mediaRange="7481202-8529707" />
-					<SegmentURL mediaRange="8529708-9666048" />
-					<SegmentURL mediaRange="9666049-10800178" />
-					<SegmentURL mediaRange="10800179-11851966" />
-					<SegmentURL mediaRange="11851967-12984421" />
-					<SegmentURL mediaRange="12984422-14114514" />
-					<SegmentURL mediaRange="14114515-15261762" />
-					<SegmentURL mediaRange="15261763-16352685" />
-					<SegmentURL mediaRange="16352686-17352094" />
-					<SegmentURL mediaRange="17352095-18443760" />
-					<SegmentURL mediaRange="18443761-19520674" />
-					<SegmentURL mediaRange="19520675-20608118" />
-					<SegmentURL mediaRange="20608119-21646180" />
-					<SegmentURL mediaRange="21646181-22698140" />
-					<SegmentURL mediaRange="22698141-23872114" />
-					<SegmentURL mediaRange="23872115-24926790" />
-					<SegmentURL mediaRange="24926791-26010491" />
-					<SegmentURL mediaRange="26010492-27018726" />
-					<SegmentURL mediaRange="27018727-28119393" />
-					<SegmentURL mediaRange="28119394-29153215" />
-					<SegmentURL mediaRange="29153216-30193219" />
-					<SegmentURL mediaRange="30193220-31237694" />
-					<SegmentURL mediaRange="31237695-32250940" />
-					<SegmentURL mediaRange="32250941-33316250" />
-					<SegmentURL mediaRange="33316251-34414962" />
-					<SegmentURL mediaRange="34414963-35497260" />
-					<SegmentURL mediaRange="35497261-36553380" />
-					<SegmentURL mediaRange="36553381-37660692" />
-					<SegmentURL mediaRange="37660693-38749940" />
-					<SegmentURL mediaRange="38749941-39814698" />
-					<SegmentURL mediaRange="39814699-40894038" />
-					<SegmentURL mediaRange="40894039-42002929" />
-					<SegmentURL mediaRange="42002930-43055492" />
-					<SegmentURL mediaRange="43055493-44086037" />
-					<SegmentURL mediaRange="44086038-45168693" />
-					<SegmentURL mediaRange="45168694-46179613" />
-					<SegmentURL mediaRange="46179614-47073474" />
-					<SegmentURL mediaRange="47073475-47859212" />
-					<SegmentURL mediaRange="47859213-47875528" />
-				</SegmentList>
-			</Representation>
-		</AdaptationSet>
-	</Period>
+<?xml version="1.0" encoding="UTF-8"?>
+<MPD
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="urn:mpeg:DASH:schema:MPD:2011"
+  xsi:schemaLocation="urn:mpeg:DASH:schema:MPD:2011"
+  type="static"
+  mediaPresentationDuration="PT225.476S"
+  minBufferTime="PT1S"
+  profiles="urn:mpeg:dash:profile:webm-on-demand:2012">
+<Period id="0" start="PT0S" duration="PT225.476S" >
+<AdaptationSet id="0" mimeType="audio/webm" codecs="opus" audioSamplingRate="48000" bitstreamSwitching="true" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
+<Representation id="0" bandwidth="1736163">
+<BaseURL>sincerite.webm</BaseURL>
+<SegmentBase
+  indexRange="47875823-47876762">
+<Initialization
+  range="0-603" />
+</SegmentBase>
+</Representation>
+</AdaptationSet>
+</Period>
 </MPD>
