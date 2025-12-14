@@ -73,8 +73,6 @@
     let lyricCache = new Map();
     let isSeeking = false;
     let lastUserAction = "pause";
-    let autoScrollLyrics = true;
-    let userScrollTimeout = null;
 
     function setActiveTrack(index) {
       trackElements.forEach((el) => el.classList.remove("is-active"));
@@ -99,13 +97,6 @@
       progressSlider.value = Math.floor(audioElement.currentTime || 0);
       currentTimeLabel.textContent = secondsToTimecode(audioElement.currentTime);
       durationLabel.textContent = secondsToTimecode(audioElement.duration);
-      
-      // Auto-scroll lyrics based on playback progress
-      if (lyricsContent && audioElement.duration > 0 && autoScrollLyrics) {
-        const progress = audioElement.currentTime / audioElement.duration;
-        const maxScroll = lyricsContent.scrollHeight - lyricsContent.clientHeight;
-        lyricsContent.scrollTop = progress * maxScroll;
-      }
     }
 
     function getNextIndex(step) {
@@ -164,10 +155,8 @@
 
       const label = `Track ${String(trackInfo.index + 1).padStart(2, "0")} · ${trackInfo.title}`;
 
-      // Scroll to top when changing tracks and re-enable auto-scroll
+      // Scroll to top when changing tracks
       lyricsContent.scrollTop = 0;
-      autoScrollLyrics = true;
-      clearTimeout(userScrollTimeout);
 
       if (lyricCache.has(trackInfo.lyricsUrl)) {
         lyricsContent.textContent = lyricCache.get(trackInfo.lyricsUrl);
@@ -339,17 +328,6 @@
       progressSlider.addEventListener("change", () => {
         engine.seek(Number(progressSlider.value));
         isSeeking = false;
-      });
-
-      // Detect user scrolling lyrics and pause auto-scroll
-      lyricsContent.addEventListener("scroll", (e) => {
-        if (e.isTrusted) {
-          autoScrollLyrics = false;
-          clearTimeout(userScrollTimeout);
-          userScrollTimeout = setTimeout(() => {
-            autoScrollLyrics = true;
-          }, 3000);
-        }
       });
 
       headtrackingButton.addEventListener("click", async () => {
