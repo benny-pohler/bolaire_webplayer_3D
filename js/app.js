@@ -39,10 +39,8 @@
 
   function isMobileDevice() {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile|tablet/i;
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    const isSmallScreen = window.innerWidth <= 1024;
-    return mobileRegex.test(userAgent.toLowerCase()) || (isTouchDevice && isSmallScreen);
+    const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
+    return mobileRegex.test(userAgent.toLowerCase());
   }
 
   document.addEventListener("DOMContentLoaded", async () => {
