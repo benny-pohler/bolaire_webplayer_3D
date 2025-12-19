@@ -37,7 +37,28 @@
     return el;
   }
 
+  function isMobileDevice() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile|tablet/i;
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const isSmallScreen = window.innerWidth <= 1024;
+    return mobileRegex.test(userAgent.toLowerCase()) || (isTouchDevice && isSmallScreen);
+  }
+
   document.addEventListener("DOMContentLoaded", async () => {
+    const mobileLinksContainer = document.getElementById("streaming-links-mobile");
+    const desktopLinksContainer = document.getElementById("streaming-links-desktop");
+    
+    if (isMobileDevice()) {
+      if (mobileLinksContainer) {
+        mobileLinksContainer.style.display = "flex";
+        mobileLinksContainer.classList.add("is-mobile");
+      }
+      if (desktopLinksContainer) {
+        desktopLinksContainer.style.display = "none";
+      }
+    }
+
     const audioElement = qs("#player-audio");
     const trackListElement = qs("#track-list");
     const playButton = qs("#btn-play");
