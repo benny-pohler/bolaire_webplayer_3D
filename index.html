@@ -31,7 +31,7 @@
       <div class="player-card__art">
         <img src="images/bolaire_mosaic.jpg" alt="bolaire - mosaic, floating · EP cover"
           class="player-card__art-image">
-        <section class="player-card__lyrics" aria-live="polite">
+        <section class="player-card__lyrics" aria-live="polite" data-order="4">
           <header class="player-card__lyrics-header">
             <h2>Lyrics</h2>
             <p id="lyrics-track-label" class="player-card__lyrics-subtitle">Track 01 · Déviation</p>
@@ -40,7 +40,22 @@
         </section>
       </div>
       <div class="player-card__content">
-        <div class="streaming-links streaming-links--mobile" id="streaming-links-mobile" style="display: none;">
+        <header class="player-card__header" data-order="1">
+          <p class="player-card__eyebrow">bolaire</p>
+          <h1 class="player-card__title">mosaic, floating · 3D Audio EP</h1>
+          <p class="player-card__subtitle">Immersive listening experience (use headphones)</p>
+          <p class="player-card__browser-note">Best experienced on Chrome or Firefox (desktop)</p>
+        </header>
+
+        <div class="mobile-warning" id="mobile-warning" style="display: none;" data-order="2">
+          <p class="mobile-warning__text">
+            This device is not supported for 3D Audio playback.<br>
+            Best experienced on Chrome or Firefox (desktop).<br>
+            Please listen to it on the following streaming providers:
+          </p>
+        </div>
+
+        <div class="streaming-links streaming-links--mobile" id="streaming-links-mobile" style="display: none;" data-order="3">
           <a href="https://music.apple.com/de/album/mosaic-floating-binaural-ep/1862753199?l=en-GB" target="_blank" rel="noopener noreferrer" class="streaming-link" aria-label="Listen on Apple Music">
             <img src="images/dist/apple-music.png" alt="Apple Music" class="streaming-link__logo">
           </a>
@@ -54,14 +69,8 @@
             <img src="images/dist/deezer-heart.svg" alt="Deezer" class="streaming-link__logo">
           </a>
         </div>
-        <header class="player-card__header">
-          <p class="player-card__eyebrow">bolaire</p>
-          <h1 class="player-card__title">mosaic, floating · 3D Audio EP</h1>
-          <p class="player-card__subtitle">Immersive listening experience (use headphones)</p>
-          <p class="player-card__browser-note">Best experienced on Chrome or Firefox (desktop)</p>
-        </header>
 
-        <ul class="player-card__tracklist" id="track-list" aria-label="Track list">
+        <ul class="player-card__tracklist" id="track-list" aria-label="Track list" data-order="5">
           <li data-track-index="0" data-src="audio/deviation.mpd" data-lyrics="lyrics/deviation.txt"
             class="player-card__track is-active">
             <span class="player-card__track-number">01</span>
@@ -88,7 +97,7 @@
           </li>
         </ul>
 
-        <div class="player-card__controls">
+        <div class="player-card__controls" data-order="6">
           <div class="transport">
             <button type="button" class="transport__button" id="btn-prev" aria-label="Previous track">
               <span aria-hidden="true">⟨</span>
@@ -114,14 +123,14 @@
           </button>
         </div>
 
-        <div class="player-card__progress" aria-label="Playback progress">
+        <div class="player-card__progress" aria-label="Playback progress" data-order="7">
           <span id="current-time" class="player-card__timecode">0:00</span>
           <input id="progress" class="player-card__slider" type="range" min="0" max="0" value="0"
             aria-label="Seek through track">
           <span id="duration" class="player-card__timecode">0:00</span>
         </div>
 
-        <div class="player-card__extras">
+        <div class="player-card__extras" data-order="8">
           <label class="room-control" for="room-select">
             <span class="room-control__label">Room ambience</span>
             <select id="room-select" class="room-control__select">

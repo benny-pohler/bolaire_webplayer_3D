@@ -411,6 +411,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  align-self: flex-start;
 }
 
 #headtracking-visual {
@@ -560,13 +561,16 @@ body {
 .streaming-links {
   display: flex;
   align-items: center;
-  gap: 24px;
-  margin-left: 32px;
+  gap: 16px;
+  margin-left: 20px;
+  align-self: flex-start;
+  margin-top: 26px;
 }
 
 .streaming-links--mobile {
   display: none;
   margin-left: 0;
+  margin-top: 0;
 }
 
 .streaming-links--desktop {
@@ -582,7 +586,7 @@ body {
 
 .streaming-link:hover {
   opacity: 1;
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 .streaming-link:focus {
@@ -592,10 +596,27 @@ body {
 }
 
 .streaming-link__logo {
-  width: 50px;
-  height: 50px;
+  width: 32px;
+  height: 32px;
   display: block;
   object-fit: contain;
+}
+
+/* Mobile Warning */
+.mobile-warning {
+  background: rgba(196, 58, 61, 0.1);
+  border: 1px solid rgba(196, 58, 61, 0.3);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin: 24px 0;
+  text-align: center;
+}
+
+.mobile-warning__text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text);
 }
 
 /* Mobile: show only on actual mobile devices */
@@ -606,4 +627,42 @@ body {
   padding-bottom: 24px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   gap: 20px;
+}
+
+/* Mobile Layout Reordering */
+.player-card__content.is-mobile {
+  display: flex;
+  flex-direction: column;
+}
+
+.player-card__content.is-mobile [data-order="1"] { order: 1; }
+.player-card__content.is-mobile [data-order="2"] { order: 2; }
+.player-card__content.is-mobile [data-order="3"] { order: 3; }
+.player-card__content.is-mobile [data-order="4"] { order: 4; }
+.player-card__content.is-mobile [data-order="5"] { order: 5; }
+.player-card__content.is-mobile [data-order="6"] { order: 6; }
+.player-card__content.is-mobile [data-order="7"] { order: 7; }
+.player-card__content.is-mobile [data-order="8"] { order: 8; }
+
+/* Disabled State for Mobile Devices */
+.is-disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  user-select: none;
+}
+
+.is-disabled .player-card__track {
+  color: var(--color-text-muted);
+}
+
+.is-disabled .transport__button,
+.is-disabled .headtracking-toggle,
+.is-disabled .room-control__select,
+.is-disabled .player-card__slider {
+  cursor: not-allowed;
+}
+
+.is-disabled #headtracking-visual {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: radial-gradient(circle at 50% 30%, rgba(100, 100, 100, 0.1), rgba(10, 10, 10, 0.5));
 }

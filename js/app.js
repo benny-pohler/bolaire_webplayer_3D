@@ -48,8 +48,12 @@
   document.addEventListener("DOMContentLoaded", async () => {
     const mobileLinksContainer = document.getElementById("streaming-links-mobile");
     const desktopLinksContainer = document.getElementById("streaming-links-desktop");
+    const mobileWarning = document.getElementById("mobile-warning");
+    const contentContainer = document.querySelector(".player-card__content");
+    const lyricsSection = document.querySelector(".player-card__lyrics");
+    const isMobile = isMobileDevice();
     
-    if (isMobileDevice()) {
+    if (isMobile) {
       if (mobileLinksContainer) {
         mobileLinksContainer.style.display = "flex";
         mobileLinksContainer.classList.add("is-mobile");
@@ -57,6 +61,22 @@
       if (desktopLinksContainer) {
         desktopLinksContainer.style.display = "none";
       }
+      if (mobileWarning) {
+        mobileWarning.style.display = "block";
+      }
+      if (contentContainer) {
+        contentContainer.classList.add("is-mobile");
+      }
+      if (lyricsSection && contentContainer) {
+        contentContainer.appendChild(lyricsSection);
+      }
+      
+      document.querySelector("#track-list")?.classList.add("is-disabled");
+      document.querySelector(".player-card__controls")?.classList.add("is-disabled");
+      document.querySelector(".player-card__progress")?.classList.add("is-disabled");
+      document.querySelector(".player-card__extras")?.classList.add("is-disabled");
+      
+      return;
     }
 
     const audioElement = qs("#player-audio");
