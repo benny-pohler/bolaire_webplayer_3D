@@ -44,12 +44,12 @@
   }
 
   document.addEventListener("DOMContentLoaded", async () => {
+    const isMobile = isMobileDevice();
     const mobileLinksContainer = document.getElementById("streaming-links-mobile");
     const desktopLinksContainer = document.getElementById("streaming-links-desktop");
     const mobileWarning = document.getElementById("mobile-warning");
     const contentContainer = document.querySelector(".player-card__content");
     const lyricsSection = document.querySelector(".player-card__lyrics");
-    const isMobile = isMobileDevice();
     
     if (isMobile) {
       if (mobileLinksContainer) {
@@ -73,6 +73,61 @@
       document.querySelector(".player-card__controls")?.classList.add("is-disabled");
       document.querySelector(".player-card__progress")?.classList.add("is-disabled");
       document.querySelector(".player-card__extras")?.classList.add("is-disabled");
+      
+      const mobileTrackListElement = document.querySelector("#track-list");
+      const mobileLyricsContent = document.querySelector("#lyrics-content");
+      const mobileLyricsTrackLabel = document.querySelector("#lyrics-track-label");
+      const trackElements = mobileTrackListElement ? Array.from(mobileTrackListElement.querySelectorAll("[data-track-index]")) : [];
+      const lyricCache = new Map();
+      
+      async function showLyricsMobileOnly(trackElement) {
+        if (!mobileLyricsContent || !mobileLyricsTrackLabel) return;
+        
+        const title = trackElement.querySelector(".player-card__track-title")?.textContent?.trim();
+        const index = parseInt(trackElement.dataset.trackIndex);
+        const lyricsUrl = trackElement.dataset.lyrics;
+        const label = `Track ${String(index + 1).padStart(2, "0")} · ${title}`;
+        
+        trackElements.forEach((el) => el.classList.remove("is-active"));
+        trackElement.classList.add("is-active");
+        
+        mobileLyricsContent.scrollTop = 0;
+        
+        if (lyricCache.has(lyricsUrl)) {
+          mobileLyricsContent.textContent = lyricCache.get(lyricsUrl);
+          mobileLyricsTrackLabel.textContent = label;
+          return;
+        }
+        
+        if (!lyricsUrl) {
+          mobileLyricsContent.textContent = "Lyrics will be added soon.";
+          mobileLyricsTrackLabel.textContent = label;
+          return;
+        }
+        
+        mobileLyricsContent.textContent = "Loading…";
+        mobileLyricsTrackLabel.textContent = label;
+        
+        try {
+          const response = await fetch(lyricsUrl);
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          const text = await response.text();
+          lyricCache.set(lyricsUrl, text);
+          mobileLyricsContent.textContent = text;
+          mobileLyricsTrackLabel.textContent = label;
+        } catch (err) {
+          console.error("Failed to load lyrics", err);
+          mobileLyricsContent.textContent = "Could not load lyrics.";
+        }
+      }
+      
+      trackElements.forEach((trackEl) => {
+        trackEl.addEventListener("click", () => {
+          showLyricsMobileOnly(trackEl);
+        });
+      });
       
       return;
     }

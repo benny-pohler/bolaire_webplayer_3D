@@ -623,10 +623,12 @@ body {
 .streaming-links--mobile.is-mobile {
   display: flex;
   justify-content: center;
-  margin-bottom: 24px;
+  align-items: center;
+  margin: 24px auto;
   padding-bottom: 24px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   gap: 20px;
+  width: 100%;
 }
 
 /* Mobile Layout Reordering */
@@ -647,12 +649,25 @@ body {
 /* Disabled State for Mobile Devices */
 .is-disabled {
   opacity: 0.4;
-  pointer-events: none;
   user-select: none;
+}
+
+.is-disabled.player-card__controls,
+.is-disabled.player-card__progress {
+  pointer-events: none;
+}
+
+.is-disabled.player-card__tracklist {
+  opacity: 0.5;
 }
 
 .is-disabled .player-card__track {
   color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.is-disabled .player-card__track:hover {
+  opacity: 0.8;
 }
 
 .is-disabled .transport__button,
