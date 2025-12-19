@@ -555,3 +555,59 @@ body {
   color: var(--color-text);
   text-decoration: underline;
 }
+
+/* Streaming Links */
+.streaming-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.streaming-links--mobile {
+  display: none;
+}
+
+.streaming-links--desktop {
+  display: flex;
+}
+
+.streaming-link {
+  display: block;
+  opacity: 0.85;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.streaming-link:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.streaming-link:focus {
+  outline: 2px solid var(--color-highlight);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.streaming-link__logo {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .streaming-links--mobile {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .streaming-links--desktop {
+    display: none;
+  }
+  
+  .streaming-link__logo {
+    height: 40px;
+  }
+}
